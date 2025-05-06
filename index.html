@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buttons</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <style>
+    .btn{
+      border-style:solid;
+    }
+  </style>
+  
+  
+  <h1>Click the to copy CSS code</h1>
+  <div>
+    <button class="btn" id="btn">button</button>
+  </div>
+  <div id="css">
+    
+  </div>
+  
+  <p>Background Color <input type="color" id="bg"></p>
+  <p>Font Color <input type="color" id="fc"></p>
+  <p>Font Size <input type="text" id="fs"></p>
+  <p>Border <input type="checkbox"></p>
+  <div>
+    <p>Border Color <input type="color" id="bc"></p>
+    <p>Border Size <input type="text" id="bs"></p>
+  </div>
+  <p>Border Radius <input type="text" id="br"></p>
+  <button onclick="apply()">Apply</button>
+  
+  
+  <script>
+    function apply(){
+      let bgcolor, fcolor, fsize, bcolor, bsize, bradius;
+      bgcolor = document.getElementById("bg").value;
+      fcolor = document.getElementById("fc").value;
+      fsize = document.getElementById("fs").value;
+      bcolor = document.getElementById("bc").value;
+      bsize = document.getElementById("bs").value;
+      bradius = document.getElementById("br").value;
+      
+      document.getElementById("btn").style.backgroundColor = bgcolor;
+      document.getElementById("btn").style.color = fcolor;
+      document.getElementById("btn").style.fontSize = fsize;
+      document.getElementById("btn").style.borderColor = bcolor;
+      document.getElementById("btn").style.borderWidth = bsize;
+      document.getElementById("btn").style.borderRadius = bradius;
+    
+    
+      let css_bgcolor = `background-color:${bgcolor};`;
+      let css_fcolor = `color:${fcolor};`;
+      let css_fsize = `font-size:${fsize};`;
+      let css_bcolor = `border-color:${bcolor};`;
+      let css_bsize = `border-width:${bsize};`;
+      let css_bradius = `border-radius:${bradius};`;
+      
+      document.getElementById("css").innerText = `
+      .btn{
+      ${css_bgcolor}
+      ${css_fcolor}
+      ${css_fsize}
+      ${css_bcolor}
+      ${css_bsize}
+      ${css_bradius}
+      border-style:solid;
+      }
+      `
+    }
+    
+  </script>
+</body>
+</html>

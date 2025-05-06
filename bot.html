@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Website Title</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Bot Details</h1>
+  <p>later</p>
+  
+  <h1>Add Command</h1>
+  <p>Put your command a name</p>
+  <input type="text">
+  
+  <p>Click to add a action</p>
+
+  <button onclick="sendMessage()">Send Message</button>
+  <div id="send_message">
+    <input type="text" id="sendMessage">
+    <button onclick="save_sendMessage()">Save</button>
+  </div>
+  
+  <br>
+  <button>Build</button>
+
+  <script>
+    let commandList = []
+    
+    document.getElementById("send_message").style.display = "none";
+    
+    function sendMessage(){
+      document.getElementById("send_message").style.display = "block";
+    }
+    
+    function save_sendMessage(){
+      document.getElementById("send_message").style.display = "none";
+      const input = document.getElementById("sendMessage");
+    }
+    
+  </script>
+</body>
+</html>

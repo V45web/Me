@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QA AI with Loading Indicator</title>
+  <style>
+    #loading {
+      font-weight: bold;
+      color: blue;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loading">Loading AI model, please wait...</div>
+  <div id="output"></div>
+
+  <script type="module">
+    import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.0.0';
+
+    async function runQA() {
+      // Show loading text
+      const loadingEl = document.getElementById('loading');
+      const outputEl = document.getElementById('output');
+
+      loadingEl.style.display = 'block';
+      outputEl.innerHTML = '';
+
+      // Initialize AI pipeline (this downloads the model!)
+      const ai = await pipeline('question-answering', 'Xenova/distilbert-base-cased-distilled-squad');
+
+      // Model loaded, hide loading
+      loadingEl.style.display = 'none';
+
+      const context = "OpenAI created ChatGPT, a powerful AI language model that can assist with various tasks.";
+      const question = "Who created ChatGPT?";
+
+      // Get answer
+      const answer = await ai(question, context);
+
+      // Show answer
+      outputEl.innerHTML = `<b>Question:</b> ${question}<br><b>Answer:</b> ${answer.answer}`;
+    }
+
+    runQA();
+  </script>
+
+</body>
+</html>

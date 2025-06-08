@@ -33,7 +33,7 @@
       outputEl.innerHTML = '';
 
       // Initialize AI pipeline (this downloads the model!)
-      const ai = await pipeline('question-answering', 'Xenova/distilbert-base-cased-distilled-squad');
+      const ai = await pipeline('question-answering', 'tomasmcm/boltuix-neurobert-mini-onnx/onnx/model_fp16.onnx');
 
       // Model loaded, hide loading
       loadingEl.style.display = 'none';

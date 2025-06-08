@@ -33,7 +33,7 @@
       outputEl.innerHTML = '';
 
       // Initialize AI pipeline (this downloads the model!)
-      const ai = await pipeline('question-answering', 'tomasmcm/boltuix-neurobert-mini-onnx', {dtype: 'fp16'});
+      const ai = await pipeline('question-answering', 'tomasmcm/boltuix-neurobert-mini-onnx', {dtype: 'fp32'});
 
       // Model loaded, hide loading
       loadingEl.style.display = 'none';
